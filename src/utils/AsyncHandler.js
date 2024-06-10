@@ -2,8 +2,9 @@
 
 // 1st way of doing asyncHandler 
 const asyncHandler = (requestHandler) =>{
-    (req,res,next) => {
-        Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err))
+    return (req,res,next) => {
+        Promise.resolve(requestHandler(req, res, next)).catch
+        ((err) => next(err))
 // Promise.resolve() is used to make sure that the function is executed. 
     }
 } 
